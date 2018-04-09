@@ -1,40 +1,38 @@
-struct MyQuestionAnswerer {
+import UIKit
+class QuestionAnswerer: UIViewController {
+    /// Creates a String in response to another String.
     func responseTo(question: String) -> String {
-        // TODO: Write a response 
-        let lowercasedQuestion = question.lowercased()
+        let lowerQuestion = question.lowercased()
         
-        if lowercasedQuestion.contains("What") && lowercasedQuestion.contains("does") && lowercasedQuestion.contains("CAS") && lowercasedQuestion.contains("stand") && lowercasedQuestion.contains("for?"){
-            return "The C stands for Creativity, The A stands for Action, The S stands for Service"
-
-        } else if lowercasedQuestion.contains("What") && lowercasedQuestion.contains ("are") && lowercasedQuestion.contains("the") && lowercasedQuestion.contains ("meeting") && lowercasedQuestion.contains ("days") && lowercasedQuestion.contains ("for") && lowercasedQuestion.contains ("this") && lowercasedQuestion.contains ("program"){
-            return "They are in Mrs. Gherciou's room on Monday's during lunch"
+        if lowerQuestion.contains("ultimate frisbee") && lowerQuestion.contains("offer") {
+            return "At AIS, we do offer ultimate frisbee. It is played in the fall."
+        } else if lowerQuestion.contains("sports") && lowerQuestion.contains("school") && lowerQuestion.contains("offer") { return "AIS does offer sports, which includes things like soccer and ultimate frisbee."
+        } else if lowerQuestion.contains("ultimate frisbee") && lowerQuestion.contains("rules") {
+            return "The rules of ultimate frisbee are complex. Go to http://bit.ly/2t0xCFH to learn the rules."
+        } else if lowerQuestion.contains("ultimate frisbee") && lowerQuestion.contains("start") && lowerQuestion.contains("playing"){
+            return "You can start playing ultimate frisbee in the fall. Signups are in September."
+        } else if lowerQuestion.contains("ultimate frisbee") && lowerQuestion.contains("people") && lowerQuestion.contains("many") {
+            return "Around 15-30 kids usually play this sport in the fall."
+        } else if lowerQuestion.contains("ultimate frisbee") && lowerQuestion.contains("a team") && lowerQuestion.contains("b team") {
+                return "For ultimate frisbee, there is an A team and a B team, though this can be changed later."
+        } else if lowerQuestion.contains("ultimate frisbee") && lowerQuestion.contains("should") && lowerQuestion.contains("do") {
+            return "That depends. Do you really want to do it? Do you have conflicts in your schedule?"
+        } else if lowerQuestion.contains("ultimate frisbee") && lowerQuestion.contains("play") && lowerQuestion.contains("where") {
+            return "Ultimate frisbee is usually played on the turf field, although the location can be changed."
+        } else if lowerQuestion.contains("ultimate frisbee") && lowerQuestion.contains("practice") && lowerQuestion.contains("time") {
+            return "The time for ultimate frisbee practice is usually after school around 4:00 to 5:00."
+        } else if lowerQuestion.contains("ultimate frisbee") && lowerQuestion.contains("games") && lowerQuestion.contains("against") && lowerQuestion.contains("begin") {
+            return "These usually start sometime around the middle of ultimate frisbee season."
+        }
+         else {
+            let alert = UIAlertController(title: "That didn't make sense.", message: "Try typing that in again.", preferredStyle: .alert)
             
-        } else if lowercasedQuestion.contains ("What") && lowercasedQuestion.contains ("grade") && lowercasedQuestion.contains ("do") && lowercasedQuestion.contains ("you") && lowercasedQuestion.contains ("have") && lowercasedQuestion.contains ("to") && lowercasedQuestion.contains ("be") && lowercasedQuestion.contains ("in"){
-            return "6th grade - 12th grade"
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             
-        } else if lowercasedQuestion.contains ("What") && lowercasedQuestion.contains ("is") && lowercasedQuestion.contains ("the") && lowercasedQuestion.contains ("purpose") && lowercasedQuestion.contains ("of") && lowercasedQuestion.contains ("this") && lowercasedQuestion.contains ("program"){
-                return "It is to support girls in STEM by educating them about the disparity between men and women in STEM fields"
+            self.present(alert, animated: true, completion: nil)
             
-        } else if lowercasedQuestion.hasPrefix("how") && lowercasedQuestion.hasPrefix("do") && lowercasedQuestion.hasPrefix("you") && lowercasedQuestion.hasPrefix("guys") && lowercasedQuestion.hasPrefix("work") && lowercasedQuestion.hasPrefix("with") && lowercasedQuestion.hasPrefix("the") && lowercasedQuestion.hasPrefix("girls") {
-            return "This is mostly done by informing them with nearby outreach opportunities, and coordinating with guest speakers around the metro-Atlanta area to serve as role models for our members."
-        } else if lowercasedQuestion.hasPrefix("can") && lowercasedQuestion.hasPrefix("girls") && lowercasedQuestion.hasPrefix("who") && lowercasedQuestion.hasPrefix("speak") && lowercasedQuestion.hasPrefix("other") && lowercasedQuestion.hasPrefix("languages") && lowercasedQuestion.hasPrefix("than") && lowercasedQuestion.hasPrefix("english") && lowercasedQuestion.hasPrefix("join") {
-            return "Yes, although the main speaking language will probably be english."
-        } else if lowercasedQuestion.hasPrefix("is") && lowercasedQuestion.hasPrefix("this") && lowercasedQuestion.hasPrefix("CAS") && lowercasedQuestion.hasPrefix("group") && lowercasedQuestion.hasPrefix("avaliable") && lowercasedQuestion.hasPrefix("at") && lowercasedQuestion.hasPrefix("AIS") {
-            return "Yes, it is."
-        } else if lowercasedQuestion.hasPrefix("does") && lowercasedQuestion.hasPrefix("this") && lowercasedQuestion.hasPrefix("require") && lowercasedQuestion.hasPrefix("any") && lowercasedQuestion.hasPrefix("money") && lowercasedQuestion.hasPrefix("in") && lowercasedQuestion.hasPrefix("order") && lowercasedQuestion.hasPrefix("to") && lowercasedQuestion.hasPrefix("join") {
-            return "The first Chick-fil-a’s were located in Atlanta Georgia and Hapeville Georgia"
-        } else if lowercasedQuestion.hasPrefix ("is") {
-            return "No."
-        } else if lowercasedQuestion.hasPrefix ("do") && lowercasedQuestion.hasPrefix("you") && lowercasedQuestion.hasPrefix("have") && lowercasedQuestion.hasPrefix("to") && lowercasedQuestion.hasPrefix("be") && lowercasedQuestion.hasPrefix("advanced") && lowercasedQuestion.hasPrefix("within") && lowercasedQuestion.hasPrefix("STEAM") && lowercasedQuestion.hasPrefix("like") && lowercasedQuestion.hasPrefix("can") && lowercasedQuestion.hasPrefix("you") && lowercasedQuestion.hasPrefix("be") && lowercasedQuestion.hasPrefix("a") && lowercasedQuestion.hasPrefix("beginner") {
-            return "Yes, and their knowledge will grow throughout them being in this CAS group."
-        } else if lowercasedQuestion.hasPrefix("How") && lowercasedQuestion.hasPrefix("do") && lowercasedQuestion.hasPrefix("you") && lowercasedQuestion.hasPrefix("join") && lowercasedQuestion.hasPrefix("the") && lowercasedQuestion.hasPrefix("CAS") && lowercasedQuestion.hasPrefix("group") {
-            return "You would join this by emailing the head of the CAS group."
-            
-        }else {
-            return "Sorry, I dont have a response to that right now"
-            
+            return ""
         }
     }
-
-
 }
+
